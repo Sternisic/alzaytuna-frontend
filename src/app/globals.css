@@ -1,26 +1,102 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@import url('https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic&display=swap');
+
+/* ⬇️ HIER kommt deine Tailwind-Konfiguration direkt in CSS */
+@theme {
+  --font-arabic: "Noto Naskh Arabic", serif;
+
+  --color-olive-50: #f6f6f2;
+  --color-olive-100: #e2e2d2;
+  --color-olive-200: #c8c8a8;
+  --color-olive-300: #acac7b;
+  --color-olive-400: #94945a;
+  --color-olive-500: #7b7b3f;
+  --color-olive-600: #646430;
+  --color-olive-700: #4f4f25;
+  --color-olive-800: #3c3c1c;
+  --color-olive-900: #2c2c13;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
+/* Deine globale CSS-Regel */
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  direction: rtl;
+  font-family: var(--font-arabic);
+}
+
+/* Galerie-Wrapper für Bildgruppen */
+article > p:has(img) + p:has(img),
+article > p:has(img):nth-child(n + 2):has(+ p:has(img)) {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* Grundstil für alle Bilder im Artikel */
+article p > img {
+  width: 100%;
+  max-width: 100%;
+  object-fit: cover;
+  border-radius: 0.75rem;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  cursor: zoom-in;
+  transition: transform 0.2s ease;
+  margin: 0 auto;
+}
+
+/* Standardstil für alle Bilder im Artikel */
+article img {
+  display: block;
+  object-fit: cover;
+  border-radius: 0.75rem;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Hover-Effekt */
+article img:hover {
+  transform: scale(1.01);
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.1);
+}
+
+/* Einzelbild zentriert und breiter */
+article p:has(img:only-child) img {
+  max-width: 70%;
+  margin: 2rem auto;
+}
+
+/* Bildgruppe: flex-Layout */
+article p:has(img:nth-child(2)) {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  margin: 2rem 0;
+}
+
+/* 2 Bilder */
+article p:has(img:nth-child(2)) img:nth-child(1),
+article p:has(img:nth-child(2)) img:nth-child(2) {
+  flex: 1 1 calc(50% - 0.5rem);
+  max-width: calc(50% - 0.5rem);
+}
+
+/* 3 oder mehr Bilder */
+article p:has(img:nth-child(3)) img,
+article p:has(img:nth-child(4)) img {
+  flex: 1 1 calc(33.333% - 0.5rem);
+  max-width: calc(33.333% - 0.5rem);
+}
+
+/* Responsives Verhalten */
+@media (max-width: 768px) {
+  article p:has(img:nth-child(2)) img,
+  article p:has(img:nth-child(3)) img,
+  article p:has(img:nth-child(4)) img {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
 }
