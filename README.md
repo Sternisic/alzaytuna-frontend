@@ -23,28 +23,35 @@ Die Seite basiert auf **Next.js (Frontend)** und **Strapi (Headless CMS)** – m
 ├── public/            # Logos, Ornamente, statische Dateien
 ├── .env               # API-Keys & Umgebungsvariablen
 └── README.md
+```
 
+---
 
-🚀 Lokale Entwicklung
-1. Backend starten (Strapi)
+## 🚀 Lokale Entwicklung
 
+### 1. Backend starten (Strapi)
+
+```bash
 cd backend
 npm install
 npm run develop
+```
 
-2. Frontend starten (Next.js)
-bash
-Copy
-Edit
+### 2. Frontend starten (Next.js)
 
+```bash
 cd frontend
 npm install
 npm run dev
+```
 
-⚠️ Stelle sicher, dass NEXT_PUBLIC_API_URL korrekt gesetzt ist (.env.local).
+> ⚠️ Stelle sicher, dass `NEXT_PUBLIC_API_URL` korrekt gesetzt ist (`.env.local`).
 
-🧠 Inhalte verwalten (Strapi)
-Beiträge (Posts) mit:
+---
+
+## 🧠 Inhalte verwalten (Strapi)
+
+Beiträge (`Posts`) mit:
 
 - Titel, Inhalt (Markdown), Slug
 - Vorschaubild (Thumbnail)
@@ -52,14 +59,18 @@ Beiträge (Posts) mit:
 - Autor & Veröffentlichungsdatum
 - Optional: Anhänge (PDF, Bilder)
 
-📸 Design Highlights
+---
 
-- Responsives Layout
-- Zentriertes Ornament unter Titeln
-- Bilder automatisch als Galerie gruppiert (bis zu 3)
-- Einzelbilder stilvoll hervorgehoben
-- Hover- und Zoomeffekte
+## 📸 Design Highlights
 
-📜 Lizenz
+- ✅ Responsives Layout
+- ✅ Zentriertes Ornament unter Titeln
+- ✅ Bilder automatisch als Galerie gruppiert (bis zu 3)
+- ✅ Einzelbilder stilvoll hervorgehoben
+- ✅ Hover- und Zoomeffekte
 
-- MIT – frei verwendbar mit Namensnennung.
+---
+
+## 📜 Lizenz
+
+MIT – frei verwendbar mit Namensnennung.
