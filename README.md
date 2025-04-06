@@ -1,85 +1,65 @@
-🧩 Erklärung der Teile:
-🔹 Lokaler Inhalt (aus create-next-app):
-md
-Copy
-Edit
-This is a [Next.js](https://nextjs.org) project bootstrapped with ...
-...
-🔸 Remote Inhalt (von GitHub):
-md
-Copy
-Edit
-# alzaytuna-frontend
-Frontend for Alzaytuna – built with Next.js
-✅ Empfehlung: Kombinierte, schöne README.md
-Hier ein fertiger Vorschlag, den du komplett übernehmen kannst:
+# 🕌 Alzaytuna
 
-md
-Copy
-Edit
-# alzaytuna-frontend
+**Alzaytuna** ist eine arabischsprachige Wissensplattform, die moderne Technologie mit klassischem Design kombiniert.  
+Die Seite basiert auf **Next.js (Frontend)** und **Strapi (Headless CMS)** – mit Fokus auf Lesbarkeit, Struktur und visuelle Eleganz.
 
-Frontend for **Alzaytuna** – built with [Next.js](https://nextjs.org) and connected to a [Strapi](https://strapi.io) backend.
+## 🌿 Features
+
+- 🌍 **Komplett arabischsprachig & RTL-optimiert**
+- 📰 **Startseite mit Featured Post**, Beitragsgalerie & Sidebar-Filter
+- 🏷️ **Kategorien, Tags & Autoren** dynamisch aus Strapi
+- 🖼 **Post-Seite mit Bildergalerie & Zoom**
+- ✨ **Design in Olivgrün**, inspiriert von traditionellem Stil
+- 📎 Unterstützung für **Anhänge** (PDFs etc.)
 
 ---
 
-## 🚀 Getting Started
-
-First, install dependencies:
+## 📂 Projektstruktur
 
 ```bash
+.
+├── frontend/          # Next.js Frontend (Pages, Components, Styles)
+├── backend/           # Strapi CMS (Collections, APIs, Media)
+├── public/            # Logos, Ornamente, statische Dateien
+├── .env               # API-Keys & Umgebungsvariablen
+└── README.md
+
+
+🚀 Lokale Entwicklung
+1. Backend starten (Strapi)
+
+cd backend
 npm install
-Then run the development server:
+npm run develop
 
+2. Frontend starten (Next.js)
 bash
 Copy
 Edit
+
+cd frontend
+npm install
 npm run dev
-Open http://localhost:3000 in your browser to see the result.
 
-📦 Tech Stack
-Next.js 14
+⚠️ Stelle sicher, dass NEXT_PUBLIC_API_URL korrekt gesetzt ist (.env.local).
 
-TypeScript
+🧠 Inhalte verwalten (Strapi)
+Beiträge (Posts) mit:
 
-Tailwind CSS
+- Titel, Inhalt (Markdown), Slug
+- Vorschaubild (Thumbnail)
+- Mehrere Kategorien
+- Autor & Veröffentlichungsdatum
+- Optional: Anhänge (PDF, Bilder)
 
-Axios for API calls
+📸 Design Highlights
 
-Strapi 5 as backend
+- Responsives Layout
+- Zentriertes Ornament unter Titeln
+- Bilder automatisch als Galerie gruppiert (bis zu 3)
+- Einzelbilder stilvoll hervorgehoben
+- Hover- und Zoomeffekte
 
-🌐 API
-Make sure your Strapi backend is running (default: http://localhost:1337).
+📜 Lizenz
 
-Example endpoint:
-
-bash
-Copy
-Edit
-http://localhost:1337/api/posts?populate=*
-📡 Deployment
-The easiest way to deploy this app is via Vercel.
-
-📁 Pages
-/ → List of all posts
-
-/posts/[slug] → Detailed view for a single post
-
-🛠 Maintained by
-sternisic
-
-yaml
-Copy
-Edit
-
----
-
-## ✅ Danach:
-
-1. Speichere die Datei `README.md`
-2. Terminal:
-
-```bash
-git add README.md
-git commit -m "Resolved README conflict and updated project info"
-git push -u origin main
+- MIT – frei verwendbar mit Namensnennung.
