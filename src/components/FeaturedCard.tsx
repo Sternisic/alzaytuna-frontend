@@ -13,6 +13,15 @@ type Props = {
   };
 };
 
+function stripMarkdown(input: string): string {
+  return input
+    .replace(/!\[.*?\]\(.*?\)/g, "") // Bilder entfernen ![alt](url)
+    .replace(/\[([^\]]+)\]\([^)]+\)/g, "$1") // Links umwandeln [Text](url) → Text
+    .replace(/[*_~`>#-]/g, "") // Markdown-Zeichen entfernen
+    .replace(/\n{2,}/g, " ") // Mehrzeilige Absätze zu Leerzeichen
+    .trim();
+}
+
 export default function FeaturedCard({
   slug,
   title,
@@ -75,7 +84,9 @@ export default function FeaturedCard({
 
         {/* Text */}
         <p className="text-base text-gray-700 leading-relaxed line-clamp-4 whitespace-pre-line mb-5">
-          {content?.substring(0, 250) || "لا يوجد محتوى بعد"}
+          {content
+            ? stripMarkdown(content).substring(0, 250)
+            : "لا يوجد محتوى بعد"}
         </p>
 
         {/* Weiterlesen */}
